@@ -7,6 +7,24 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// my soliton all on my own
+// function palindrome(str){
+//     return str === str.split('').reverse().join('')
+// }
+// console.log(palindrome('bib'))
+
+// module.exports = palindrome;
+
+
+//second soliton from Grider
+//problem with this solution, is that it has to make double comparisons as it runs through the array after the midpoint
+function palindrome(str){
+    //turn string into an array because .every works on arrays
+    //call for every on the array, and compare each element to the last element until it reaches the middle and the middle letter compares to itself
+    return str.split('').every((char, i)=> {
+     return char === str[str.length- i - 1]
+    })
+}
+console.log(palindrome('bit'))
 
 module.exports = palindrome;
